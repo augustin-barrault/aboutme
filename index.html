@@ -23,14 +23,38 @@
             background-color: #6d071a; /* Rouge bordeaux */
             color: white;
             padding: 1rem 0;
-            text-align: center;
             display: flex;
             align-items: center;
             justify-content: space-between;
+            position: relative;
+        }
+
+        .lang-switch {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+        }
+
+        .lang-switch button {
+            background-color: white;
+            color: #6d071a;
+            border: 2px solid #6d071a;
+            padding: 10px 20px;
+            font-size: 1rem;
+            cursor: pointer;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+
+        .lang-switch button:hover {
+            background-color: #f4f4f4;
         }
 
         header img {
-            height: 100px;
+            height: 140px;
+            border-radius: 10px;
+            -webkit-mask-image: linear-gradient(to bottom, black 90%, transparent 100%);
+            mask-image: linear-gradient(to bottom, black 90%, transparent 100%);
         }
 
         header .header-title {
@@ -57,24 +81,6 @@
         }
 
         .buttons-top a:hover {
-            background-color: #00375e;
-        }
-
-        .language-switch {
-            text-align: center;
-            margin-bottom: 20px;
-        }
-
-        .language-switch button {
-            background-color: #004b87;
-            color: white;
-            border: none;
-            padding: 10px 15px;
-            cursor: pointer;
-            border-radius: 5px;
-        }
-
-        .language-switch button:hover {
             background-color: #00375e;
         }
 
@@ -112,18 +118,18 @@
 </head>
 <body>
     <header>
+        <div class="lang-switch">
+            <button onclick="toggleLanguage()">FR/EN</button>
+        </div>
         <img src="augustin.png" alt="Photo Augustin Barrault" style="margin-left: 20px;">
         <div class="header-title">
-            <h1>Augustin Barrault</h1>
-            <p>Ingénieur généraliste spécialisé en aéronautique</p>
+            <h1 id="header-title">Augustin Barrault</h1>
+            <p id="header-subtitle">Ingénieur généraliste spécialisé en aéronautique</p>
         </div>
     </header>
     <div class="buttons-top">
         <a id="linkedin-button" href="https://www.linkedin.com/in/augustin-barrault-a22b37254" target="_blank">LinkedIn</a>
         <a id="cv-button" href="cv.pdf" target="_blank">Télécharger mon CV</a>
-    </div>
-    <div class="language-switch">
-        <button onclick="toggleLanguage()">FR/EN</button>
     </div>
     <main>
         <section class="section">
@@ -171,6 +177,8 @@
 
         const content = {
             fr: {
+                headerTitle: "Augustin Barrault",
+                headerSubtitle: "Ingénieur généraliste spécialisé en aéronautique",
                 profileTitle: "Profil",
                 profileText: "Ingénieur généraliste spécialisé en aéronautique et passionné par les sciences, je cherche à contribuer à des projets innovants en mécanique des fluides.",
                 skillsTitle: "Compétences",
@@ -186,8 +194,10 @@
                 cvButton: "Télécharger mon CV"
             },
             en: {
+                headerTitle: "Augustin Barrault",
+                headerSubtitle: "Generalist engineer specialized in aerospace",
                 profileTitle: "Profile",
-                profileText: "Generalist engineer specialized in aerospace and passionate about sciences, I aim to contribute to innovative projects in fluid mechanics.",
+                profileText: "Generalist engineer specialized in aerospace and passionate about science, seeking to contribute to innovative fluid mechanics projects.",
                 skillsTitle: "Skills",
                 skillsList: `
                     <li>Programming: C, Python, Matlab.</li>
@@ -206,15 +216,5 @@
             isFrench = !isFrench;
             const lang = isFrench ? 'fr' : 'en';
 
-            document.getElementById('profile-title').innerText = content[lang].profileTitle;
-            document.getElementById('profile-text').innerText = content[lang].profileText;
-            document.getElementById('skills-title').innerText = content[lang].skillsTitle;
-            document.getElementById('skills-list').innerHTML = content[lang].skillsList;
-            document.getElementById('education-title').innerText = content[lang].educationTitle;
-            document.getElementById('experience-title').innerText = content[lang].experienceTitle;
-            document.getElementById('linkedin-button').innerText = content[lang].linkedin;
-            document.getElementById('cv-button').innerText = content[lang].cvButton;
-        }
-    </script>
-</body>
-</html>
+            document.getElementById('header-title').innerText = content[lang].headerTitle;
+            document.getElementById('header-subtitle').inner
