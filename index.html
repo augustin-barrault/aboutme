@@ -25,13 +25,30 @@
             padding: 1rem 0;
             display: flex;
             align-items: center;
-            justify-content: space-between;
+            justify-content: flex-start; /* Laisse de l'espace à gauche */
             position: relative;
+        }
+
+        header img {
+            height: 140px;
+            border-radius: 10px;
+            -webkit-mask-image: linear-gradient(to bottom, black 90%, transparent 100%);
+            mask-image: linear-gradient(to bottom, black 90%, transparent 100%);
+            margin-right: 20px;
+        }
+
+        header::before {
+            content: "";
+            display: block;
+            width: 140px; /* Taille de l'image transparente à droite */
+            height: 140px;
+            background-image: url('transparent.png'); /* Image transparente */
+            background-size: cover;
         }
 
         .header-content {
             text-align: center;
-            flex-grow: 1;
+            flex-grow: 1; /* Permet de centrer le titre */
         }
 
         .header-content h1, .header-content p {
@@ -57,14 +74,6 @@
 
         .lang-switch button:hover {
             background-color: #f4f4f4;
-        }
-
-        header img {
-            height: 140px;
-            border-radius: 10px;
-            -webkit-mask-image: linear-gradient(to bottom, black 90%, transparent 100%);
-            mask-image: linear-gradient(to bottom, black 90%, transparent 100%);
-            margin-right: 20px;
         }
 
         .buttons-top {
@@ -187,7 +196,7 @@
                 profileTitle: "Profil",
                 profileText: "Ingénieur généraliste spécialisé en aéronautique et passionné par les sciences, je cherche à contribuer à des projets innovants en mécanique des fluides.",
                 skillsTitle: "Compétences",
-                skillsList: `
+                skillsList: `    
                     <li>Programmation : C, Python, Matlab.</li>
                     <li>Conception assistée par ordinateur : Onshape, Catia.</li>
                     <li>Simulation numérique : Fluent, Comsol.</li>
@@ -203,54 +212,46 @@
                 experienceText: `
                     <strong>2023</strong> : Stage ouvrier de 4 semaines chez Hatty (construction de camions).<br>
                     <strong>2023 – 2024</strong> : Conception d’un robot-mètre sur rail pour la SNCF (projet industriel).<br>
-                    <strong>2022 – 2023</strong> : Réalisation et expérimentation d’une mini-éolienne Darrieus en H.`,
-                linkedin: "LinkedIn",
-                cvButton: "Télécharger mon CV"
+                    <strong>2022 – 2023</strong> : Réalisation et expérimentation d’une mini-éolienne Darrieus en H.`
             },
             en: {
                 headerTitle: "Augustin Barrault",
-                headerSubtitle: "Generalist engineer specialized in aerospace",
+                headerSubtitle: "General engineer specialized in aeronautics",
                 profileTitle: "Profile",
-                profileText: "Generalist engineer specialized in aerospace and passionate about science, seeking to contribute to innovative fluid mechanics projects.",
+                profileText: "General engineer specialized in aeronautics and passionate about science, I seek to contribute to innovative fluid mechanics projects.",
                 skillsTitle: "Skills",
-                skillsList: `
+                skillsList: `    
                     <li>Programming: C, Python, Matlab.</li>
-                    <li>Computer-Aided Design: Onshape, Catia.</li>
-                    <li>Numerical Simulation: Fluent, Comsol.</li>
-                    <li>Office Tools: Word, Excel, PowerPoint, LaTeX.</li>
+                    <li>CAD: Onshape, Catia.</li>
+                    <li>Numerical simulation: Fluent, Comsol.</li>
+                    <li>Office tools: Word, Excel, PowerPoint, LaTeX.</li>
                     <li>Languages: French (native), English (TOEFL ITP 613), basic German.</li>`,
                 educationTitle: "Education",
                 educationText: `
-                    <strong>Since 2022</strong>: Centrale Lyon, aerospace engineering and eco-design track.<br>
-                    <strong>2024</strong>: Semester exchange at the University of Surrey, specializing in Aerospace.<br>
-                    <strong>2020 – 2022</strong>: Preparatory classes (MPSI-MP) at La Martinière Monplaisir.<br>
-                    <strong>2020</strong>: Scientific baccalaureate, honors “Très Bien.”`,
+                    <strong>Since 2022</strong> : École Centrale de Lyon, aerospace engineering and eco-design track.<br>
+                    <strong>2024</strong> : Exchange semester at the University of Surrey, Aerospace specialization.<br>
+                    <strong>2020 – 2022</strong> : Preparatory classes for grandes écoles (MPSI-MP) at La Martinière Monplaisir.<br>
+                    <strong>2020</strong> : Scientific Baccalaureate, with honors.`,
                 experienceTitle: "Professional Experience",
                 experienceText: `
-                    <strong>2023</strong>: 4-week workshop internship at Hatty (truck construction).<br>
-                    <strong>2023 – 2024</strong>: Designed a rail-mounted robot-meter for SNCF (industrial project).<br>
-                    <strong>2022 – 2023</strong>: Developed and tested a small Darrieus H-wind turbine.`,
-                linkedin: "LinkedIn",
-                cvButton: "Download my CV"
+                    <strong>2023</strong> : 4-week internship at Hatty (truck manufacturing).<br>
+                    <strong>2023 – 2024</strong> : Design of a rail-based robot-meter for the SNCF (industrial project).<br>
+                    <strong>2022 – 2023</strong> : Design and testing of a mini Darrieus wind turbine.`
             }
         };
 
         function toggleLanguage() {
             isFrench = !isFrench;
-            const lang = isFrench ? 'fr' : 'en';
-
-            document.getElementById('header-title').innerText = content[lang].headerTitle;
-            document.getElementById('header-subtitle').innerText = content[lang].headerSubtitle;
-            document.getElementById('profile-title').innerText = content[lang].profileTitle;
-            document.getElementById('profile-text').innerText = content[lang].profileText;
-            document.getElementById('skills-title').innerText = content[lang].skillsTitle;
-            document.getElementById('skills-list').innerHTML = content[lang].skillsList;
-            document.getElementById('education-title').innerText = content[lang].educationTitle;
-            document.getElementById('education-text').innerHTML = content[lang].educationText;
-            document.getElementById('experience-title').innerText = content[lang].experienceTitle;
-            document.getElementById('experience-text').innerHTML = content[lang].experienceText;
-            document.getElementById('linkedin-button').innerText = content[lang].linkedin;
-            document.getElementById('cv-button').innerText = content[lang].cvButton;
+            document.getElementById("header-title").innerText = content[isFrench ? 'fr' : 'en'].headerTitle;
+            document.getElementById("header-subtitle").innerText = content[isFrench ? 'fr' : 'en'].headerSubtitle;
+            document.getElementById("profile-title").innerText = content[isFrench ? 'fr' : 'en'].profileTitle;
+            document.getElementById("profile-text").innerHTML = content[isFrench ? 'fr' : 'en'].profileText;
+            document.getElementById("skills-title").innerText = content[isFrench ? 'fr' : 'en'].skillsTitle;
+            document.getElementById("skills-list").innerHTML = content[isFrench ? 'fr' : 'en'].skillsList;
+            document.getElementById("education-title").innerText = content[isFrench ? 'fr' : 'en'].educationTitle;
+            document.getElementById("education-text").innerHTML = content[isFrench ? 'fr' : 'en'].educationText;
+            document.getElementById("experience-title").innerText = content[isFrench ? 'fr' : 'en'].experienceTitle;
+            document.getElementById("experience-text").innerHTML = content[isFrench ? 'fr' : 'en'].experienceText;
         }
     </script>
 </body>
