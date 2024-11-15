@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Augustin Barrault - Ingénieur en aéronautique</title>
     <style>
-        /* Assure que le corps prend toute la hauteur disponible */
         html, body {
             height: 100%;
             margin: 0;
@@ -14,58 +13,50 @@
             line-height: 1.6;
         }
 
-        /* Fond d'écran */
         body {
             background: url('aero.png') no-repeat center center fixed;
-            background-size: cover; /* S'assure que l'image couvre tout l'écran */
+            background-size: cover;
             background-color: #f9f9f9;
         }
 
         header {
             background-color: #6d071a; /* Rouge bordeaux */
             color: white;
-            padding: 1.5rem 0;
+            padding: 1rem 0;
             text-align: center;
+            position: relative;
+        }
+
+        header img {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            height: 80px;
+        }
+
+        .header-left {
+            left: 20px;
+        }
+
+        .header-right {
+            right: 20px;
         }
 
         main {
             padding: 20px;
             max-width: 900px;
             margin: 20px auto;
-            background-color: rgba(255, 255, 255, 0.9); /* Légèrement transparent pour laisser transparaître le fond */
+            background-color: rgba(255, 255, 255, 0.9);
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
 
-        .content {
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            justify-content: space-between;
-            gap: 20px;
-        }
-
-        .photo img {
-            max-width: 150px;
-            height: auto;
-            border-radius: 10px;
-            /* Estompe progressive */
-            -webkit-mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
-            mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
-        }
-
-        .logo img {
-            max-width: 150px;
-            height: auto;
-            border-radius: 10px;
-        }
-
-        .text {
-            flex: 1;
+        .section {
+            margin-bottom: 20px;
         }
 
         .buttons {
-            text-align: center; /* Centre les boutons */
+            text-align: center;
             margin-top: 20px;
         }
 
@@ -86,24 +77,6 @@
             background-color: #00375e;
         }
 
-        nav {
-            text-align: right;
-            margin-bottom: 10px;
-        }
-
-        nav button {
-            background-color: #004b87;
-            color: white;
-            border: none;
-            padding: 10px 15px;
-            cursor: pointer;
-            border-radius: 5px;
-        }
-
-        nav button:hover {
-            background-color: #00375e;
-        }
-
         footer {
             text-align: center;
             padding: 10px 0;
@@ -115,59 +88,53 @@
 </head>
 <body>
     <header>
-        <h1 id="title">Augustin Barrault</h1>
-        <p id="subtitle">Ingénieur en aéronautique - École Centrale de Lyon</p>
+        <img src="centrale.png" alt="Logo Centrale Lyon" class="header-left">
+        <h1>Augustin Barrault</h1>
+        <p>Ingénieur généraliste spécialisé en aéronautique</p>
+        <img src="augustin.png" alt="Photo Augustin Barrault" class="header-right">
     </header>
-    <nav>
-        <button onclick="toggleLanguage()">FR/EN</button>
-    </nav>
     <main>
-        <div class="content">
-            <div class="photo">
-                <img src="augustin.png" alt="Photo de Augustin Barrault">
-            </div>
-            <div class="text">
-                <p id="description">Je suis un ingénieur passionné par l'aéronautique, actuellement étudiant à l'École Centrale de Lyon. Mon expertise inclut la mécanique des fluides, la simulation numérique et les systèmes complexes.</p>
-            </div>
-            <div class="logo">
-                <img src="centrale.png" alt="Logo de l'École Centrale de Lyon">
-            </div>
-        </div>
+        <section class="section">
+            <h2>Profil</h2>
+            <p>
+                Ingénieur généraliste spécialisé en aéronautique et passionné par les sciences, 
+                je cherche à contribuer à des projets innovants en mécanique des fluides. 
+            </p>
+        </section>
+        <section class="section">
+            <h2>Compétences</h2>
+            <ul>
+                <li>Programmation : C, Python, Matlab.</li>
+                <li>Conception assistée par ordinateur : Onshape, Catia.</li>
+                <li>Simulation numérique : Fluent, Comsol.</li>
+                <li>Bureautique : Word, Excel, PowerPoint, LaTeX.</li>
+                <li>Langues : Français (langue maternelle), Anglais (TOEFL ITP 613), notions en Allemand.</li>
+            </ul>
+        </section>
+        <section class="section">
+            <h2>Formation</h2>
+            <p>
+                <strong>Depuis 2022</strong> : École Centrale de Lyon, option ingénieur aéronautique et éco-conception.<br>
+                <strong>2024</strong> : Semestre d’échange à l’Université de Surrey, spécialisation Aérospatiale.<br>
+                <strong>2020 – 2022</strong> : Classes préparatoires aux grandes écoles (MPSI-MP) à La Martinière Monplaisir.<br>
+                <strong>2020</strong> : Baccalauréat scientifique, mention Très Bien.
+            </p>
+        </section>
+        <section class="section">
+            <h2>Expériences professionnelles</h2>
+            <p>
+                <strong>2023</strong> : Stage ouvrier de 4 semaines chez Hatty (construction de camions).<br>
+                <strong>2023 – 2024</strong> : Conception d’un robot-mètre sur rail pour la SNCF (projet industriel).<br>
+                <strong>2022 – 2023</strong> : Réalisation et expérimentation d’une mini-éolienne Darrieus en H.
+            </p>
+        </section>
         <div class="buttons">
-            <a id="linkedin-button" href="https://www.linkedin.com/in/augustin-barrault-a22b37254?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3BQXXQP8DTTEyCuCpcYOoL%2Bw%3D%3D" target="_blank">LinkedIn</a>
-            <a id="cv-button" href="cv.pdf" target="_blank">Télécharger mon CV</a>
+            <a href="https://www.linkedin.com/in/augustin-barrault-a22b37254" target="_blank">LinkedIn</a>
+            <a href="cv.pdf" target="_blank">Télécharger mon CV</a>
         </div>
     </main>
     <footer>
         <p>&copy; 2024 Augustin Barrault</p>
     </footer>
-
-    <script>
-        let isFrench = true;
-
-        const content = {
-            fr: {
-                title: "Augustin Barrault",
-                subtitle: "Ingénieur en aéronautique - École Centrale de Lyon",
-                description: "Je suis un ingénieur passionné par l'aéronautique, actuellement étudiant à l'École Centrale de Lyon. Mon expertise inclut la mécanique des fluides, la simulation numérique et les systèmes complexes.",
-                cvButton: "Télécharger mon CV"
-            },
-            en: {
-                title: "Augustin Barrault",
-                subtitle: "Aerospace Engineer - École Centrale de Lyon",
-                description: "I am an engineer passionate about aerospace, currently studying at École Centrale de Lyon. My expertise includes fluid mechanics, numerical simulation, and complex systems.",
-                cvButton: "Download my CV"
-            }
-        };
-
-        function toggleLanguage() {
-            isFrench = !isFrench;
-            const lang = isFrench ? 'fr' : 'en';
-            document.getElementById('title').innerText = content[lang].title;
-            document.getElementById('subtitle').innerText = content[lang].subtitle;
-            document.getElementById('description').innerText = content[lang].description;
-            document.getElementById('cv-button').innerText = content[lang].cvButton;
-        }
-    </script>
 </body>
 </html>
