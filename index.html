@@ -24,23 +24,21 @@
             color: white;
             padding: 1rem 0;
             display: flex;
-            justify-content: space-between;
             align-items: center;
-            position: relative;
+            justify-content: space-between; /* Espace entre le titre et le bouton */
         }
 
-        header .header-content {
+        .header-content {
             flex: 1;
-            display: flex;
-            justify-content: center; /* Centrer le titre */
-            align-items: center;
             text-align: center;
         }
 
         header img {
             height: 140px;
             border-radius: 10px;
-            margin-left: 20px;
+            -webkit-mask-image: linear-gradient(to bottom, black 90%, transparent 100%);
+            mask-image: linear-gradient(to bottom, black 90%, transparent 100%);
+            margin-right: 20px;
         }
 
         .lang-switch {
@@ -120,11 +118,11 @@
 </head>
 <body>
     <header>
+        <img src="augustin.png" alt="Photo Augustin Barrault">
         <div class="header-content">
             <h1 id="header-title">Augustin Barrault</h1>
             <p id="header-subtitle">Ingénieur généraliste spécialisé en aéronautique</p>
         </div>
-        <img src="augustin.png" alt="Photo Augustin Barrault">
         <div class="lang-switch">
             <button onclick="toggleLanguage()">FR/EN</button>
         </div>
