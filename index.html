@@ -24,43 +24,26 @@
             color: white;
             padding: 1rem 0;
             text-align: center;
-            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
         }
 
         header img {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            height: 80px;
+            height: 100px;
         }
 
-        .header-left {
-            left: 20px;
-        }
-
-        .header-right {
-            right: 20px;
-        }
-
-        main {
-            padding: 20px;
-            max-width: 900px;
-            margin: 20px auto;
-            background-color: rgba(255, 255, 255, 0.9);
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-
-        .section {
-            margin-bottom: 20px;
-        }
-
-        .buttons {
+        header .header-title {
+            flex-grow: 1;
             text-align: center;
-            margin-top: 20px;
         }
 
-        .buttons a {
+        .buttons-top {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .buttons-top a {
             display: inline-block;
             margin: 10px;
             padding: 10px 20px;
@@ -73,8 +56,49 @@
             transition: background-color 0.3s ease;
         }
 
-        .buttons a:hover {
+        .buttons-top a:hover {
             background-color: #00375e;
+        }
+
+        .language-switch {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .language-switch button {
+            background-color: #004b87;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .language-switch button:hover {
+            background-color: #00375e;
+        }
+
+        main {
+            padding: 20px;
+            max-width: 900px;
+            margin: 20px auto;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            color: #6d071a; /* Rouge bordeaux */
+        }
+
+        .section {
+            margin-bottom: 20px;
+        }
+
+        .section img {
+            display: block;
+            margin: 10px auto;
+            height: 80px;
         }
 
         footer {
@@ -88,22 +112,30 @@
 </head>
 <body>
     <header>
-        <img src="centrale.png" alt="Logo Centrale Lyon" class="header-left">
-        <h1>Augustin Barrault</h1>
-        <p>Ingénieur généraliste spécialisé en aéronautique</p>
-        <img src="augustin.png" alt="Photo Augustin Barrault" class="header-right">
+        <img src="augustin.png" alt="Photo Augustin Barrault" style="margin-left: 20px;">
+        <div class="header-title">
+            <h1>Augustin Barrault</h1>
+            <p>Ingénieur généraliste spécialisé en aéronautique</p>
+        </div>
     </header>
+    <div class="buttons-top">
+        <a id="linkedin-button" href="https://www.linkedin.com/in/augustin-barrault-a22b37254" target="_blank">LinkedIn</a>
+        <a id="cv-button" href="cv.pdf" target="_blank">Télécharger mon CV</a>
+    </div>
+    <div class="language-switch">
+        <button onclick="toggleLanguage()">FR/EN</button>
+    </div>
     <main>
         <section class="section">
-            <h2>Profil</h2>
-            <p>
+            <h2 id="profile-title">Profil</h2>
+            <p id="profile-text">
                 Ingénieur généraliste spécialisé en aéronautique et passionné par les sciences, 
                 je cherche à contribuer à des projets innovants en mécanique des fluides. 
             </p>
         </section>
         <section class="section">
-            <h2>Compétences</h2>
-            <ul>
+            <h2 id="skills-title">Compétences</h2>
+            <ul id="skills-list">
                 <li>Programmation : C, Python, Matlab.</li>
                 <li>Conception assistée par ordinateur : Onshape, Catia.</li>
                 <li>Simulation numérique : Fluent, Comsol.</li>
@@ -112,29 +144,77 @@
             </ul>
         </section>
         <section class="section">
-            <h2>Formation</h2>
-            <p>
+            <h2 id="education-title">Formation</h2>
+            <p id="education-text">
                 <strong>Depuis 2022</strong> : École Centrale de Lyon, option ingénieur aéronautique et éco-conception.<br>
                 <strong>2024</strong> : Semestre d’échange à l’Université de Surrey, spécialisation Aérospatiale.<br>
                 <strong>2020 – 2022</strong> : Classes préparatoires aux grandes écoles (MPSI-MP) à La Martinière Monplaisir.<br>
                 <strong>2020</strong> : Baccalauréat scientifique, mention Très Bien.
             </p>
+            <img src="centrale.png" alt="Logo Centrale Lyon">
         </section>
         <section class="section">
-            <h2>Expériences professionnelles</h2>
-            <p>
+            <h2 id="experience-title">Expériences professionnelles</h2>
+            <p id="experience-text">
                 <strong>2023</strong> : Stage ouvrier de 4 semaines chez Hatty (construction de camions).<br>
                 <strong>2023 – 2024</strong> : Conception d’un robot-mètre sur rail pour la SNCF (projet industriel).<br>
                 <strong>2022 – 2023</strong> : Réalisation et expérimentation d’une mini-éolienne Darrieus en H.
             </p>
         </section>
-        <div class="buttons">
-            <a href="https://www.linkedin.com/in/augustin-barrault-a22b37254" target="_blank">LinkedIn</a>
-            <a href="cv.pdf" target="_blank">Télécharger mon CV</a>
-        </div>
     </main>
     <footer>
         <p>&copy; 2024 Augustin Barrault</p>
     </footer>
+
+    <script>
+        let isFrench = true;
+
+        const content = {
+            fr: {
+                profileTitle: "Profil",
+                profileText: "Ingénieur généraliste spécialisé en aéronautique et passionné par les sciences, je cherche à contribuer à des projets innovants en mécanique des fluides.",
+                skillsTitle: "Compétences",
+                skillsList: `
+                    <li>Programmation : C, Python, Matlab.</li>
+                    <li>Conception assistée par ordinateur : Onshape, Catia.</li>
+                    <li>Simulation numérique : Fluent, Comsol.</li>
+                    <li>Bureautique : Word, Excel, PowerPoint, LaTeX.</li>
+                    <li>Langues : Français (langue maternelle), Anglais (TOEFL ITP 613), notions en Allemand.</li>`,
+                educationTitle: "Formation",
+                experienceTitle: "Expériences professionnelles",
+                linkedin: "LinkedIn",
+                cvButton: "Télécharger mon CV"
+            },
+            en: {
+                profileTitle: "Profile",
+                profileText: "Generalist engineer specialized in aerospace and passionate about sciences, I aim to contribute to innovative projects in fluid mechanics.",
+                skillsTitle: "Skills",
+                skillsList: `
+                    <li>Programming: C, Python, Matlab.</li>
+                    <li>Computer-Aided Design: Onshape, Catia.</li>
+                    <li>Numerical Simulation: Fluent, Comsol.</li>
+                    <li>Office Tools: Word, Excel, PowerPoint, LaTeX.</li>
+                    <li>Languages: French (native), English (TOEFL ITP 613), basic German.</li>`,
+                educationTitle: "Education",
+                experienceTitle: "Professional Experience",
+                linkedin: "LinkedIn",
+                cvButton: "Download my CV"
+            }
+        };
+
+        function toggleLanguage() {
+            isFrench = !isFrench;
+            const lang = isFrench ? 'fr' : 'en';
+
+            document.getElementById('profile-title').innerText = content[lang].profileTitle;
+            document.getElementById('profile-text').innerText = content[lang].profileText;
+            document.getElementById('skills-title').innerText = content[lang].skillsTitle;
+            document.getElementById('skills-list').innerHTML = content[lang].skillsList;
+            document.getElementById('education-title').innerText = content[lang].educationTitle;
+            document.getElementById('experience-title').innerText = content[lang].experienceTitle;
+            document.getElementById('linkedin-button').innerText = content[lang].linkedin;
+            document.getElementById('cv-button').innerText = content[lang].cvButton;
+        }
+    </script>
 </body>
 </html>
