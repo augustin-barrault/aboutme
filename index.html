@@ -117,8 +117,8 @@
             </div>
         </div>
         <div class="buttons">
-            <a href="https://www.linkedin.com/in/augustin-barrault-a22b37254?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3BQXXQP8DTTEyCuCpcYOoL%2Bw%3D%3D" target="_blank">LinkedIn</a>
-            <a href="cv.pdf" target="_blank">Télécharger mon CV</a>
+            <a id="linkedin-button" href="https://www.linkedin.com/in/augustin-barrault-a22b37254?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3BQXXQP8DTTEyCuCpcYOoL%2Bw%3D%3D" target="_blank">LinkedIn</a>
+            <a id="cv-button" href="cv.pdf" target="_blank">Télécharger mon CV</a>
         </div>
     </main>
     <footer>
@@ -133,11 +133,13 @@
                 title: "Augustin Barrault",
                 subtitle: "Ingénieur en aéronautique - École Centrale de Lyon",
                 description: "Je suis un ingénieur passionné par l'aéronautique, actuellement étudiant à l'École Centrale de Lyon. Mon expertise inclut la mécanique des fluides, la simulation numérique et les systèmes complexes.",
+                cvButton: "Télécharger mon CV"
             },
             en: {
                 title: "Augustin Barrault",
                 subtitle: "Aerospace Engineer - École Centrale de Lyon",
                 description: "I am an engineer passionate about aerospace, currently studying at École Centrale de Lyon. My expertise includes fluid mechanics, numerical simulation, and complex systems.",
+                cvButton: "Download my CV"
             }
         };
 
@@ -147,6 +149,7 @@
             document.getElementById('title').innerText = content[lang].title;
             document.getElementById('subtitle').innerText = content[lang].subtitle;
             document.getElementById('description').innerText = content[lang].description;
+            document.getElementById('cv-button').innerText = content[lang].cvButton;
         }
     </script>
 </body>
