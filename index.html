@@ -25,8 +25,12 @@
             padding: 1rem 0;
             display: flex;
             align-items: center;
-            justify-content: flex-start; /* Laisse de l'espace à gauche */
-            position: relative;
+            justify-content: space-between; /* Espace entre le titre et le bouton */
+        }
+
+        .header-content {
+            flex: 1;
+            text-align: center;
         }
 
         header img {
@@ -35,24 +39,6 @@
             -webkit-mask-image: linear-gradient(to bottom, black 90%, transparent 100%);
             mask-image: linear-gradient(to bottom, black 90%, transparent 100%);
             margin-right: 20px;
-        }
-
-        header::before {
-            content: "";
-            display: block;
-            width: 140px; /* Taille de l'image transparente à droite */
-            height: 140px;
-            background-image: url('transparent.png'); /* Image transparente */
-            background-size: cover;
-        }
-
-        .header-content {
-            text-align: center;
-            flex-grow: 1; /* Permet de centrer le titre */
-        }
-
-        .header-content h1, .header-content p {
-            margin: 0;
         }
 
         .lang-switch {
