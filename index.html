@@ -24,21 +24,28 @@
             color: white;
             padding: 1rem 0;
             display: flex;
+            justify-content: space-between;
             align-items: center;
-            justify-content: space-between; /* Espace entre le titre et le bouton */
+            position: relative;
         }
 
+        /* Conteneur pour centrer le titre */
         .header-content {
             flex: 1;
+            display: flex;
+            justify-content: center; /* Centrer le contenu horizontalement */
+            align-items: center; /* Centrer le contenu verticalement */
             text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
         }
 
         header img {
             height: 140px;
             border-radius: 10px;
-            -webkit-mask-image: linear-gradient(to bottom, black 90%, transparent 100%);
-            mask-image: linear-gradient(to bottom, black 90%, transparent 100%);
-            margin-right: 20px;
+            margin-left: 20px;
         }
 
         .lang-switch {
@@ -118,11 +125,10 @@
 </head>
 <body>
     <header>
-        <img src="augustin.png" alt="Photo Augustin Barrault">
         <div class="header-content">
             <h1 id="header-title">Augustin Barrault</h1>
-            <p id="header-subtitle">Ingénieur généraliste spécialisé en aéronautique</p>
         </div>
+        <img src="augustin.png" alt="Photo Augustin Barrault">
         <div class="lang-switch">
             <button onclick="toggleLanguage()">FR/EN</button>
         </div>
@@ -197,48 +203,4 @@
                 experienceTitle: "Expériences professionnelles",
                 experienceText: `
                     <strong>2023</strong> : Stage ouvrier de 4 semaines chez Hatty (construction de camions).<br>
-                    <strong>2023 – 2024</strong> : Conception d’un robot-mètre sur rail pour la SNCF (projet industriel).<br>
-                    <strong>2022 – 2023</strong> : Réalisation et expérimentation d’une mini-éolienne Darrieus en H.`
-            },
-            en: {
-                headerTitle: "Augustin Barrault",
-                headerSubtitle: "General engineer specialized in aeronautics",
-                profileTitle: "Profile",
-                profileText: "General engineer specialized in aeronautics and passionate about science, I seek to contribute to innovative fluid mechanics projects.",
-                skillsTitle: "Skills",
-                skillsList: `    
-                    <li>Programming: C, Python, Matlab.</li>
-                    <li>CAD: Onshape, Catia.</li>
-                    <li>Numerical simulation: Fluent, Comsol.</li>
-                    <li>Office tools: Word, Excel, PowerPoint, LaTeX.</li>
-                    <li>Languages: French (native), English (TOEFL ITP 613), basic German.</li>`,
-                educationTitle: "Education",
-                educationText: `
-                    <strong>Since 2022</strong> : École Centrale de Lyon, aerospace engineering and eco-design track.<br>
-                    <strong>2024</strong> : Exchange semester at the University of Surrey, Aerospace specialization.<br>
-                    <strong>2020 – 2022</strong> : Preparatory classes for grandes écoles (MPSI-MP) at La Martinière Monplaisir.<br>
-                    <strong>2020</strong> : Scientific Baccalaureate, with honors.`,
-                experienceTitle: "Professional Experience",
-                experienceText: `
-                    <strong>2023</strong> : 4-week internship at Hatty (truck manufacturing).<br>
-                    <strong>2023 – 2024</strong> : Design of a rail-based robot-meter for the SNCF (industrial project).<br>
-                    <strong>2022 – 2023</strong> : Design and testing of a mini Darrieus wind turbine.`
-            }
-        };
-
-        function toggleLanguage() {
-            isFrench = !isFrench;
-            document.getElementById("header-title").innerText = content[isFrench ? 'fr' : 'en'].headerTitle;
-            document.getElementById("header-subtitle").innerText = content[isFrench ? 'fr' : 'en'].headerSubtitle;
-            document.getElementById("profile-title").innerText = content[isFrench ? 'fr' : 'en'].profileTitle;
-            document.getElementById("profile-text").innerHTML = content[isFrench ? 'fr' : 'en'].profileText;
-            document.getElementById("skills-title").innerText = content[isFrench ? 'fr' : 'en'].skillsTitle;
-            document.getElementById("skills-list").innerHTML = content[isFrench ? 'fr' : 'en'].skillsList;
-            document.getElementById("education-title").innerText = content[isFrench ? 'fr' : 'en'].educationTitle;
-            document.getElementById("education-text").innerHTML = content[isFrench ? 'fr' : 'en'].educationText;
-            document.getElementById("experience-title").innerText = content[isFrench ? 'fr' : 'en'].experienceTitle;
-            document.getElementById("experience-text").innerHTML = content[isFrench ? 'fr' : 'en'].experienceText;
-        }
-    </script>
-</body>
-</html>
+                    <strong>2023 – 2024</strong> : Conception d’un robot-mètre sur rail pour la SNCF
