@@ -25,14 +25,14 @@
             padding: 1rem 0;
             display: flex;
             align-items: center;
-            justify-content: space-between;
+            justify-content: center;
             position: relative;
         }
 
         .lang-switch {
             position: absolute;
             top: 10px;
-            left: 10px;
+            right: 20px;
         }
 
         .lang-switch button {
@@ -55,11 +55,12 @@
             border-radius: 10px;
             -webkit-mask-image: linear-gradient(to bottom, black 90%, transparent 100%);
             mask-image: linear-gradient(to bottom, black 90%, transparent 100%);
+            margin-right: 20px;
         }
 
         header .header-title {
-            flex-grow: 1;
             text-align: center;
+            flex: 1;
         }
 
         .buttons-top {
@@ -118,13 +119,13 @@
 </head>
 <body>
     <header>
-        <div class="lang-switch">
-            <button onclick="toggleLanguage()">FR/EN</button>
-        </div>
-        <img src="augustin.png" alt="Photo Augustin Barrault" style="margin-left: 20px;">
+        <img src="augustin.png" alt="Photo Augustin Barrault">
         <div class="header-title">
             <h1 id="header-title">Augustin Barrault</h1>
             <p id="header-subtitle">Ingénieur généraliste spécialisé en aéronautique</p>
+        </div>
+        <div class="lang-switch">
+            <button onclick="toggleLanguage()">FR/EN</button>
         </div>
     </header>
     <div class="buttons-top">
@@ -217,4 +218,16 @@
             const lang = isFrench ? 'fr' : 'en';
 
             document.getElementById('header-title').innerText = content[lang].headerTitle;
-            document.getElementById('header-subtitle').inner
+            document.getElementById('header-subtitle').innerText = content[lang].headerSubtitle;
+            document.getElementById('profile-title').innerText = content[lang].profileTitle;
+            document.getElementById('profile-text').innerText = content[lang].profileText;
+            document.getElementById('skills-title').innerText = content[lang].skillsTitle;
+            document.getElementById('skills-list').innerHTML = content[lang].skillsList;
+            document.getElementById('education-title').innerText = content[lang].educationTitle;
+            document.getElementById('experience-title').innerText = content[lang].experienceTitle;
+            document.getElementById('linkedin-button').innerText = content[lang].linkedin;
+            document.getElementById('cv-button').innerText = content[lang].cvButton;
+        }
+    </script>
+</body>
+</html>
