@@ -12,7 +12,6 @@
             line-height: 1.6;
             background: url('aero.png') no-repeat center center fixed;
             background-size: cover;
-            background-blend-mode: lighten;
             background-color: #f9f9f9;
         }
         header {
@@ -24,7 +23,7 @@
         main {
             padding: 20px;
             max-width: 900px;
-            margin: 0 auto;
+            margin: 20px auto;
             background-color: rgba(255, 255, 255, 0.9);
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -36,21 +35,31 @@
             justify-content: space-between;
             gap: 20px;
         }
-        .photo img, .logo img {
+        .photo img {
             max-width: 150px;
             height: auto;
             border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            position: relative;
+            display: block;
+            /* Estompe progressive */
+            -webkit-mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+            mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+        }
+        .logo img {
+            max-width: 150px;
+            height: auto;
+            border-radius: 10px;
         }
         .text {
             flex: 1;
         }
         .buttons {
+            text-align: center; /* Centre les boutons */
             margin-top: 20px;
         }
         .buttons a {
             display: inline-block;
-            margin: 5px;
+            margin: 10px;
             padding: 10px 20px;
             color: white;
             background-color: #004b87;
@@ -59,7 +68,6 @@
             text-decoration: none;
             font-size: 1rem;
             transition: background-color 0.3s ease;
-            text-align: center;
         }
         .buttons a:hover {
             background-color: #00375e;
