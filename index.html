@@ -31,9 +31,23 @@
             margin: 0;
         }
 
-        .lang-switch {
+        .photo, .lang-switch {
             position: absolute;
-            bottom: -50px; /* Position sous le bandeau */
+            top: 100%; /* Immédiatement en dessous du bandeau */
+        }
+
+        .photo {
+            left: 20px;
+        }
+
+        .photo img {
+            height: 140px;
+            border-radius: 10px;
+            -webkit-mask-image: linear-gradient(to bottom, black 90%, transparent 100%);
+            mask-image: linear-gradient(to bottom, black 90%, transparent 100%);
+        }
+
+        .lang-switch {
             right: 20px;
         }
 
@@ -52,22 +66,9 @@
             background-color: #f4f4f4;
         }
 
-        .photo {
-            position: absolute;
-            bottom: -50px; /* Position sous le bandeau */
-            left: 20px;
-        }
-
-        .photo img {
-            height: 140px;
-            border-radius: 10px;
-            -webkit-mask-image: linear-gradient(to bottom, black 90%, transparent 100%);
-            mask-image: linear-gradient(to bottom, black 90%, transparent 100%);
-        }
-
         .buttons-top {
             text-align: center;
-            margin: 60px 0 20px 0; /* Ajustement pour laisser la place au bouton et à la photo */
+            margin: 80px 0 20px 0; /* Ajustement pour laisser la place au bouton et à la photo */
         }
 
         .buttons-top a {
